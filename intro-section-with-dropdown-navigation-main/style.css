@@ -1,0 +1,48 @@
+
+/* ############## Resets  ################## */
+* { box-sizing: border-box; } /* Switch to border-box for box-sizing. */
+body {
+  margin: 0; /* Remove the tiny space around the edge of the page */
+}
+img, video, canvas, audio, iframe, embed, object  { 
+  display: block; /* Switch display mode to block, since that's what we usually want for images. */
+  vertical-align: middle;  /* If you override, and make an image inline, it's likely you'll want middle vertical alignment. */
+}
+
+
+/* ############## Resets  ################## */
+:root {
+        --mobile-width: 375px;
+        --desktop-width: 1440px;
+    
+        /* --desktop-width: 60rem; */
+
+        --crl-almost-white: hsl(0, 0%, 98%);
+        --crl-medium-gray: hsl(0, 0%, 41%);
+        --crl-almost-black: hsl(0, 0%, 8%);
+}
+
+/* ## Typography */
+
+
+body {
+     font-size: 18px;
+     font-family: 'Epilogue';
+}
+
+a {
+  text-decoration: none;
+  color: var(--ctr-almost-black);  
+}
+
+
+/* ### Layout */
+
+.container {
+  --padding: 4rem;
+
+  outline: 1px solid red;
+  width: min(100% - var(--padding), var(--desktop-width));
+  margin-inline: auto;
+}
+
