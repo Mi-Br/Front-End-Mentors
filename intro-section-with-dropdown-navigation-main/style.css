@@ -9,6 +9,10 @@ img, video, canvas, audio, iframe, embed, object  {
   vertical-align: middle;  /* If you override, and make an image inline, it's likely you'll want middle vertical alignment. */
 }
 
+ul, li {
+  padding: 0;
+}
+
 
 /* ############## Resets  ################## */
 :root {
@@ -40,9 +44,92 @@ a {
 
 .container {
   --padding: 4rem;
-
-  outline: 1px solid red;
   width: min(100% - var(--padding), var(--desktop-width));
   margin-inline: auto;
+}
+
+nav {
+  
+}
+
+.menu {
+  display: none;
+}
+
+#hamburger_toggle {
+  display: none;
+}
+
+#hamburger_toggle:checked ~ .menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  width: 70%;
+  margin-top: 1em;
+  background-color: white;
+  padding: 3rem;
+}
+
+#hamburger_toggle:checked ~ .hamburger_area .line {
+  background: transparent;
+  border-color: transparent;
+  transform: rotate(180deg);
+}
+
+#hamburger_toggle:checked ~ .hamburger_area .line::before {
+  top: 0;
+  transform: rotate(-45deg);  
+}
+#hamburger_toggle:checked ~ .hamburger_area .line::after {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav_bar {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+.signOn {
+  display: flex;
+  flex-direction: column;
+}
+
+.signOn a {
+  
+}
+
+.cta {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+
+.hamburger_area {
+  display: block;
+  outline: 1px solid green;
+  width: 30px;
+}
+.line, .line::before, .line::after {
+  display: block;
+  content: '';
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+
+.line::before {
+  top: -8px;
+}
+
+.line::after {
+  top: 8px;
 }
 
