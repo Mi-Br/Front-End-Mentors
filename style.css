@@ -1,0 +1,83 @@
+/* ---- reset ---- */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+  
+  /* ---- particles.js container ---- */
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(141, 13, 139);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+  
+  .container{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    /* font-family: 'Plus Jakarta Sans', sans-serif; */
+    
+  }
+ 
+  @media only screen and (min-width: 300px) {
+    .container{
+        /* flex-direction: row; */
+        /* flex-wrap: wrap;        */
+    }
+  }
+
+  .project_list {
+    border: 1px solid white;
+    margin-bottom: 3em;
+    margin-right: 1.5em;
+    margin-left: 1.5em;
+  }
+ 
+
+  .project{
+    padding-inline:3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  .project h1 {
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  .project p {
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .project a{
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.537);
+    padding-inline: 1em;
+    padding-top: .3em;
+    padding-bottom: .3em;
+    display: block;
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+  }
