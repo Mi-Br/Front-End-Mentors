@@ -27,7 +27,12 @@ body {
     justify-content: center;
     align-items: center;
 }
-  
+/* 
+font-family: 'Orbitron', sans-serif;
+
+font-family: 'Press Start 2P', cursive;   */
+
+
   .container{
     position: absolute;
     display: flex;
@@ -35,7 +40,7 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Orbitron', monospace;
     /* font-family: 'Plus Jakarta Sans', sans-serif; */
     
   }
@@ -56,23 +61,47 @@ body {
  
 
   .project{
+    position: relative;
     padding-inline:3em;
     padding-top: 1em;
     padding-bottom: 1em;
     transition: .7s all;
+    min-width: 350px;
   }
   .project_list:hover {
     transform: translateY(-10px);
     transition: .7s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
+
+  .project > * {
+    font-family: 'Press Start 2P', sans-serif;
+  }
   .project h1 {
     font-size: 25px;
     font-weight: 400;
+    margin-top: 30px;
   }
 
   .project p {
     font-size: 15px;
     font-weight: 300;
+  }
+
+  .project .mininav {
+    background-color: rgb(250, 245, 245);
+    /* height: 20px; */
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+  }
+
+  .project .mininav .cross {
+    color: black;
+    border: 1px solid black;
+    display: inline-block;
+    padding: 3px;
+    margin: 2px auto 1px 1px;
   }
 
   .project a{
