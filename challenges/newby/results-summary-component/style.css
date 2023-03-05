@@ -70,11 +70,10 @@ p{
 
 
 .card {
-    outline: 1px solid orange;
     /* border-radius: 30px; */
     padding-top: 38px;
+    padding-inline: 8px;
     padding-bottom: 40px;
-    padding-inline: 58px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -89,6 +88,7 @@ p{
 }
 .card.accent p{
     color: var(--clr-neutral-light);
+    padding-inline: 58px;
 }
 .card.accent .title{
     color: var(--clr-neutral-light);
@@ -98,7 +98,6 @@ p{
 .card.accent .score{
     border-radius: 180px;
     padding: 30px;
-    /* border: 1px solid white; */
     width: 200px;
     height: 200px;
     margin-bottom: 24px;
@@ -133,6 +132,7 @@ p{
 
 .card li {
     padding: 16px;
+    margin: 0 auto;
     background-color: #7755FF;
 }
 
@@ -149,7 +149,7 @@ p{
     margin-bottom: 16px;
     border-radius: 16px;
     max-width: 288px;
-   
+    height: 100%;
 }
 .card li .attribute{
     display: flex;
@@ -189,8 +189,36 @@ li.blue{
     color: var(--clr-primary-cobalt);
 }
 
-@media  (min-width: 375px) {
-   body{
-    background-color: red;
+@media  (min-width: 500px) {
+   .summary{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+    max-width: 736px;
+    max-height: 512px;
+    box-shadow: 0px 30px 60px rgba(61, 108, 236, 0.15);
+    /* border: 1px solid red; */
+    border-radius: 34px;
+    min-width: 300px;
+   }
+   .card{
+    height: 100%;
+    width: 100%;
+   }
+   /* ul {
+    text-align: center;
+   } */
+   .card.accent{
+    max-width: 50%;
+    border-radius: 34px;
+   }
+   .container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    align-items: center;
+    justify-items: center;
    }
 }
