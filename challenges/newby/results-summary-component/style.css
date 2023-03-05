@@ -189,6 +189,17 @@ li.blue{
     color: var(--clr-primary-cobalt);
 }
 
+button{
+    background-color: var(--clr-neutral-dark);
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 32px;
+    display: block;
+    width: 80%;
+    margin: 17px auto;
+}
+
 @media  (min-width: 500px) {
    .summary{
     display: flex;
