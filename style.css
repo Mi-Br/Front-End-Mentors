@@ -8,6 +8,7 @@
   --accent-background-color: #940A8E;
   --text-primary-color: #FFFFFF;
   --text-secondary-color: #D6D6D6;
+  --color-dark: rgba(0, 0, 0, 0.537);
 }
 
 
@@ -82,13 +83,16 @@ font-family: 'Press Start 2P', cursive;   */
   border: 1px solid white;
   color: var(--text-primary-color);
   position: relative;
-  padding-inline: 3em;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 2.5rem;
+  padding-bottom: 1rem;
   transition: .7s all;
   min-width: 350px;
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  /* grid-template-rows: 1fr 1fr 1fr; */
 }
 
 .project:hover {
@@ -109,12 +113,10 @@ font-family: 'Press Start 2P', cursive;   */
 .project p {
   font-size: 15px;
   font-weight: 300;
+  color: var(--text-secondary-color);
 }
 
 .project .mininav {
-  /* background-color: rgb(250, 245, 245);
-   */
-  /* height: 20px; */
   background-color: var(--accent-background-color);
   color: var(--text-primary-color);
   width: 100%;
@@ -123,9 +125,17 @@ font-family: 'Press Start 2P', cursive;   */
   left: 0;
 }
 
+.project .image-container {
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--color-dark);
+  border-radius: 9px;
+  margin-inline: 1rem;
+}
+
 .project .image-container img {
-  outline: 1px solid deeppink;
-  height: 300px;
+  height: 250px;
+  background-color: var(--primary-background-color);
 }
 
 .project .mininav .cross {
@@ -138,12 +148,12 @@ font-family: 'Press Start 2P', cursive;   */
 .project a {
   text-decoration: none;
   color: white;
-  background-color: rgba(0, 0, 0, 0.537);
+  background-color: var(--color-dark);
   padding-inline: 1em;
   padding-top: .3em;
   padding-bottom: .3em;
   display: block;
   width: 100px;
   text-align: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
