@@ -1,9 +1,46 @@
-<script>
+<script lang="ts">
+  import { createEventDispatcher, onMount } from "svelte";
+  import type Field from "./Validators.svelte";
+
+  export let field: Field;
+  export let error: string;
+
+  const dispatch = createEventDispatcher();
+  const onChange = (event) => {
+    const newValue = event.target.value;
+    dispatch("change", {
+      value: newValue,
+      type: field.type,
+    });
+  };
+
+  switch (field.type) {
+    case "day":
+      field.placeholder = "DD";
+      break;
+    case "month":
+      field.placeholder = "MM";
+      break;
+    case "year":
+      field.placeholder = "YYYY";
+      break;
+  }
 </script>
 
 <div class="input-block">
-  <label for="input">asdasd</label>
-  <input name="input" />
+  <label for="input" />
+  <input
+    type="number"
+    name="input"
+    bind:value={field.value}
+    on:keydown={onChange}
+    on:keyup={onChange}
+    on:keypress={onChange}
+    placeholder={field.placeholder}
+  />
+  {#if !field.valid}
+    <div class="error">Error</div>
+  {/if}
 </div>
 
 <style>
@@ -19,7 +56,16 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
+  /* Works for Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
   input {
     all: unset;
     background-image: none;
@@ -40,5 +86,15 @@
   }
   input:focus {
     border: 1px solid var(--purple);
+  }
+  .error {
+    display: none;
+  }
+  input:invalid .error {
+    position: relative;
+    left: 5px;
+    color: var(--light-red);
+    font-size: 14px;
+    font-family: "Popins 400 Italic";
   }
 </style>
