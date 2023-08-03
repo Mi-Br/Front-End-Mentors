@@ -1,9 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from "svelte";
-  import type Field from "./Validators.svelte";
-
+  import { type Field } from "./Types";
+  import { validDay, validMonth, validYear } from "./Utlis";
   export let field: Field;
-  export let error: string;
 
   const dispatch = createEventDispatcher();
   const onChange = (event) => {
@@ -14,17 +13,33 @@
     });
   };
 
+  const validateField = (field: Field) => {
+    switch (field.type) {
+      case "day":
+        validDay(field);
+        break;
+      case "month":
+        validMonth(field);
+        break;
+      case "year":
+        validYear(field);
+        break;
+    }
+  };
+
+  let placeholder: string;
   switch (field.type) {
     case "day":
-      field.placeholder = "DD";
+      placeholder = "DD";
       break;
     case "month":
-      field.placeholder = "MM";
+      placeholder = "MM";
       break;
     case "year":
-      field.placeholder = "YYYY";
+      placeholder = "YYYY";
       break;
   }
+  validateField(field);
 </script>
 
 <div class="input-block">
@@ -32,14 +47,15 @@
   <input
     type="number"
     name="input"
-    bind:value={field.value}
+    value={field.value}
     on:keydown={onChange}
     on:keyup={onChange}
     on:keypress={onChange}
-    placeholder={field.placeholder}
+    {placeholder}
+    class:invalid={field.error != ""}
   />
-  {#if !field.valid}
-    <div class="error">Error</div>
+  {#if field.error != ""}
+    <div class="error">{field.error}</div>
   {/if}
 </div>
 
@@ -87,10 +103,10 @@
   input:focus {
     border: 1px solid var(--purple);
   }
-  .error {
-    display: none;
+  .invalid {
+    border: 1px solid var(--light-red);
   }
-  input:invalid .error {
+  .error {
     position: relative;
     left: 5px;
     color: var(--light-red);
