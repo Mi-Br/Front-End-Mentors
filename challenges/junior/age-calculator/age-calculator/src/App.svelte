@@ -51,14 +51,36 @@
       <Input bind:field={months} on:change={handleValueChange} />
       <Input bind:field={years} on:change={handleValueChange} />
     </div>
-    <div class="line">_____</div>
-    <div class="days"><span>{daysSpan}</span>days</div>
-    <div class="months"><span>{monthsSpan}</span>months</div>
+    <div class="line">
+      <div class="icon">
+        <img src="src/icon-arrow.svg" alt="arrow" />
+      </div>
+    </div>
     <div class="years"><span>{yearsSpan}</span>years</div>
+    <div class="months"><span>{monthsSpan}</span>months</div>
+    <div class="days"><span>{daysSpan}</span>days</div>
   </div>
 </main>
 
 <style>
+  .icon {
+    width: 6rem;
+    height: 6rem;
+    background: var(--purple);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .line {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 0.0625rem;
+    width: 100%;
+    background: var(--smokey-grey);
+    margin: 5rem 0rem;
+  }
   main {
     width: 100vw;
     height: 100vh;
@@ -96,7 +118,6 @@
   @media (max-width: 740px) {
     .container {
       padding: 3rem, 1.5rem;
-      background-color: aqua;
     }
     .date-selector {
       gap: 1rem;
@@ -113,6 +134,15 @@
     }
     .container span {
       font-size: 3.5rem;
+    }
+    .line {
+      display: flex;
+      justify-content: center;
+      margin: 3rem 0rem;
+    }
+    .icon {
+      width: 4rem;
+      height: 4rem;
     }
   }
 </style>

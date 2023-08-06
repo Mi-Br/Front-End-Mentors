@@ -83,7 +83,8 @@ export function calculateAge (day, month, year) :string[] {
     const years = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24 * 365));
     const remainingMilliseconds = ageInMilliseconds % (1000 * 60 * 60 * 24 * 365);
     const months = Math.floor(remainingMilliseconds / (1000 * 60 * 60 * 24 * 30));
-    const days = Math.floor(remainingMilliseconds / (1000 * 60 * 60 * 24));
+    const remains =  ageInMilliseconds - (years * 1000*60*60*24*365) - (months * 1000 * 60 * 60 * 24 * 30)
+    const days = Math.floor(remains / (1000 * 60 * 60 * 24));
 
     // Construct the result array
     const result: string[] = [`${days}`, `${months}`, `${years}`];

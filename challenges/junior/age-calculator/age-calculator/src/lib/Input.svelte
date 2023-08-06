@@ -43,7 +43,7 @@
 </script>
 
 <div class="input-block">
-  <label for="input" />
+  <label for="input" class:invalid={field.error != ""}>{field.type}</label>
   <input
     type="number"
     name="input"
@@ -103,6 +103,10 @@
   }
   .invalid {
     border: 1px solid var(--light-red);
+  }
+  label.invalid {
+    border: none;
+    color: var(--light-red);
   }
   .error {
     position: relative;
