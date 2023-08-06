@@ -2,7 +2,7 @@
   import "./app.css";
   import Input from "./lib/Input.svelte";
   import { type Field } from "./lib/Types";
-  import { InputHasErrors } from "./lib/Utlis";
+  import { InputHasErrors, calculateAge } from "./lib/Utlis";
   let days: Field = {
     value: undefined,
     type: "day",
@@ -24,35 +24,32 @@
   let yearsSpan;
 
   $: {
+    // console.log(days, months, years);
     if (InputHasErrors(days, months, years)) {
       daysSpan = "_ _";
       monthsSpan = "_ _";
       yearsSpan = "_ _";
+    } else {
+      // daysSpan = days.value;
+      // monthsSpan = months.value;
+      // yearsSpan = years.value;
+      [daysSpan, monthsSpan, yearsSpan] = calculateAge(days, months, years);
     }
   }
 
   const handleValueChange = (event) => {
-    switch (event.detail.type) {
-      case "day":
-        days.value = event.detail.value;
-        break;
-      case "month":
-        months.value = event.detail.value;
-        break;
-      case "year":
-        years.value = event.detail.value;
-        break;
-    }
-    InputHasErrors(days, months, years);
+    let inputErrors = InputHasErrors(days, months, years);
+    console.log("input has errors:" + inputErrors);
+    console.log(days, months, years);
   };
 </script>
 
 <main>
   <div class="container">
     <div class="date-selector">
-      <Input field={days} on:change={handleValueChange} />
-      <Input field={months} on:change={handleValueChange} />
-      <Input field={years} on:change={handleValueChange} />
+      <Input bind:field={days} on:change={handleValueChange} />
+      <Input bind:field={months} on:change={handleValueChange} />
+      <Input bind:field={years} on:change={handleValueChange} />
     </div>
     <div class="line">_____</div>
     <div class="year"><span>{daysSpan}</span>days</div>

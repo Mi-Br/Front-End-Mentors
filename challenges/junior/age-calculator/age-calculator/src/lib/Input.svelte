@@ -6,23 +6,20 @@
 
   const dispatch = createEventDispatcher();
   const onChange = (event) => {
-    const newValue = event.target.value;
-    dispatch("change", {
-      value: newValue,
-      type: field.type,
-    });
+    // const newValue = event.target.value;
+    dispatch("change");
   };
 
-  const validateField = (field: Field) => {
+  const validateField = (field: Field): boolean => {
     switch (field.type) {
       case "day":
-        validDay(field);
+        return validDay(field);
         break;
       case "month":
-        validMonth(field);
+        return validMonth(field);
         break;
       case "year":
-        validYear(field);
+        return validYear(field);
         break;
     }
   };
@@ -39,7 +36,10 @@
       placeholder = "YYYY";
       break;
   }
-  validateField(field);
+
+  $: {
+    validateField(field);
+  }
 </script>
 
 <div class="input-block">
@@ -47,10 +47,8 @@
   <input
     type="number"
     name="input"
-    value={field.value}
-    on:keydown={onChange}
     on:keyup={onChange}
-    on:keypress={onChange}
+    bind:value={field.value}
     {placeholder}
     class:invalid={field.error != ""}
   />
