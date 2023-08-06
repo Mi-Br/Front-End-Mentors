@@ -73,11 +73,16 @@ export function calculateAge (day, month, year) :string[] {
     const ageInMilliseconds = currentDate.getTime() - birthDate.getTime();
 
     // Calculate the number of years
-    const years = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25));
+    // const years = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25));
 
     // Calculate the remaining months and days
-    const remainingMilliseconds = ageInMilliseconds % (1000 * 60 * 60 * 24 * 365.25);
-    const months = Math.floor(remainingMilliseconds / (1000 * 60 * 60 * 24 * 30.4375));
+    // const remainingMilliseconds = ageInMilliseconds % (1000 * 60 * 60 * 24 * 365.25);
+    // const months = Math.floor(remainingMilliseconds / (1000 * 60 * 60 * 24 * 30.4375));
+    // const days = Math.floor(remainingMilliseconds / (1000 * 60 * 60 * 24));
+
+    const years = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24 * 365));
+    const remainingMilliseconds = ageInMilliseconds % (1000 * 60 * 60 * 24 * 365);
+    const months = Math.floor(remainingMilliseconds / (1000 * 60 * 60 * 24 * 30));
     const days = Math.floor(remainingMilliseconds / (1000 * 60 * 60 * 24));
 
     // Construct the result array

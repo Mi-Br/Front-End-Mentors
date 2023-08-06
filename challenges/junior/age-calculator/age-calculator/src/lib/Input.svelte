@@ -111,4 +111,16 @@
     font-size: 14px;
     font-family: "Popins 400 Italic";
   }
+
+  @media (max-width: 740px) {
+    /* CSS styles for mobile devices */
+    .label {
+      font-size: 1.75rem;
+    }
+    input {
+      font-size: 1.25rem;
+      padding: 0.75rem 1rem;
+      width: 5.47rem;
+    }
+  }
 </style>

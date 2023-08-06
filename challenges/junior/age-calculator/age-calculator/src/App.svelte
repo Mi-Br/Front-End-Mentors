@@ -52,16 +52,13 @@
       <Input bind:field={years} on:change={handleValueChange} />
     </div>
     <div class="line">_____</div>
-    <div class="year"><span>{daysSpan}</span>days</div>
+    <div class="days"><span>{daysSpan}</span>days</div>
     <div class="months"><span>{monthsSpan}</span>months</div>
-    <div class="days"><span>{yearsSpan}</span>years</div>
+    <div class="years"><span>{yearsSpan}</span>years</div>
   </div>
 </main>
 
 <style>
-  * {
-    /* outline: 1px solid deeppink; */
-  }
   main {
     width: 100vw;
     height: 100vh;
@@ -76,7 +73,7 @@
   }
   .container > * {
   }
-  .container .year,
+  .container .years,
   .months,
   .days {
     font-family: "Popins 800 Italic";
@@ -94,5 +91,28 @@
     display: flex;
     align-items: flex-start;
     gap: 2rem;
+  }
+
+  @media (max-width: 740px) {
+    .container {
+      padding: 3rem, 1.5rem;
+      background-color: aqua;
+    }
+    .date-selector {
+      gap: 1rem;
+      align-self: stretch;
+    }
+
+    .container .years,
+    .months,
+    .days {
+      font-family: "Popins 800 Italic";
+      font-size: 3.5rem;
+      line-height: 110%;
+      letter-spacing: -0.07px;
+    }
+    .container span {
+      font-size: 3.5rem;
+    }
   }
 </style>
